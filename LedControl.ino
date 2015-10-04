@@ -30,18 +30,23 @@ void loop() {
   button.tick();
   analogWrite(led, brightness);
   // You can implement other code in here or just wait a while 
-  delay(30);
+  delay(10);
 } // loop
 
 //
 void singleClick(){
   if (onOff == 0){
-    Serial.print("switching on");  
+    Serial.print("switching on");
+    Serial.print(brightness);
+    Serial.print("\n");  
     brightness = brightnessBackup;
+    fadeAmount = 1;
     onOff = 1;
   }
   else {
-    Serial.print("switching off");  
+    Serial.print("switching off:");  
+    Serial.print(brightness);
+    Serial.print("\n");
     brightnessBackup = brightness;
     brightness = 0;
     onOff = 0;
